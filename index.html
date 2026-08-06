@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ÉPARGNE PLUS — Gestion intelligente de votre épargne quotidienne." />
+  <title>ÉPARGNE PLUS — Connexion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <!-- Left hero panel -->
+    <section class="auth-hero">
+      <span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span>
+
+      <a class="brand" href="#">
+        <span class="logo-mark">€</span>
+        <span class="logo-text">ÉPARGNE <b>PLUS</b><span class="sub">GESTION D'ÉPARGNE</span></span>
+      </a>
+
+      <div class="hero-body">
+        <h1>Gestion <span>Intelligente</span><br />de votre Épargne</h1>
+        <p class="lead">Une plateforme bancaire premium pour suivre, au centime près, l'épargne quotidienne de chaque membre.</p>
+
+        <div class="features">
+          <div class="feature"><span class="fi">📈</span><div><b>Suivi en temps réel</b><small>Tableau de bord & statistiques dynamiques</small></div></div>
+          <div class="feature"><span class="fi">🔒</span><div><b>Sécurité bancaire</b><small>Sessions, rôles et journalisation des actions</small></div></div>
+          <div class="feature"><span class="fi">📊</span><div><b>Rapports & exports</b><small>PDF / Excel — journalier, mensuel, annuel</small></div></div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hc-top"><span>Épargne totale collectée</span><span>● live</span></div>
+          <div class="hc-amount" id="heroAmount">— FCFA</div>
+          <div class="hc-top"><span id="heroMembers">— membres actifs</span></div>
+          <div class="hc-bars" id="heroBars"></div>
+        </div>
+      </div>
+
+      <div class="hero-foot">© 2026 ÉPARGNE PLUS — Tous droits réservés.</div>
+    </section>
+
+    <!-- Right form panel -->
+    <section class="auth-form-side">
+      <div class="auth-top-toggle" id="themeSlot"></div>
+
+      <!-- ===== SETUP CARD (first launch) ===== -->
+      <div class="auth-card glass" id="setupCard" style="display:none">
+        <div class="form-head">
+          <a class="brand" href="#">
+            <span class="logo-mark">€</span>
+            <span class="logo-text">ÉPARGNE <b>PLUS</b><span class="sub">GESTION D'ÉPARGNE</span></span>
+          </a>
+          <h2>🚀 Configuration initiale</h2>
+          <p>Créez votre compte administrateur pour commencer</p>
+        </div>
+
+        <form id="setupForm" novalidate>
+          <div class="field">
+            <label for="s_lastName">Nom</label>
+            <div class="input-icon">
+              <span class="lead">👤</span>
+              <input class="input" type="text" id="s_lastName" placeholder="Votre nom" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="s_firstName">Prénom</label>
+            <div class="input-icon">
+              <span class="lead">👤</span>
+              <input class="input" type="text" id="s_firstName" placeholder="Votre prénom" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="s_login">Identifiant de connexion</label>
+            <div class="input-icon">
+              <span class="lead">🔐</span>
+              <input class="input" type="text" id="s_login" placeholder="Choisissez un identifiant" autocomplete="username" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="s_password">Mot de passe</label>
+            <div class="input-icon input-group">
+              <span class="lead">🔑</span>
+              <input class="input" type="password" id="s_password" placeholder="Min. 4 caractères" required />
+              <button type="button" class="toggle-eye" id="toggleSetupPwd" aria-label="Afficher/Masquer">👁️</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="s_password2">Confirmer le mot de passe</label>
+            <div class="input-icon input-group">
+              <span class="lead">🔑</span>
+              <input class="input" type="password" id="s_password2" placeholder="Retapez le mot de passe" required />
+              <button type="button" class="toggle-eye" id="toggleSetupPwd2" aria-label="Afficher/Masquer">👁️</button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-block" id="setupBtn">LANCER L'APPLICATION →</button>
+        </form>
+
+        <div class="auth-foot">Première utilisation • Ces identifiants serviront à vous connecter</div>
+      </div>
+
+      <!-- ===== LOGIN CARD (normal flow) ===== -->
+      <div class="auth-card glass" id="loginCard">
+        <div class="form-head">
+          <a class="brand" href="#">
+            <span class="logo-mark">€</span>
+            <span class="logo-text">ÉPARGNE <b>PLUS</b><span class="sub">GESTION D'ÉPARGNE</span></span>
+          </a>
+          <h2>Bienvenue 👋</h2>
+          <p>Connectez-vous pour accéder à votre espace</p>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="login">Identifiant</label>
+            <div class="input-icon">
+              <span class="lead">👤</span>
+              <input class="input" type="text" id="login" name="login" placeholder="Votre identifiant" autocomplete="username" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="password">Mot de passe</label>
+            <div class="input-icon input-group">
+              <span class="lead">🔑</span>
+              <input class="input" type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password" required />
+              <button type="button" class="toggle-eye" id="togglePwd" aria-label="Afficher/Masquer">👁️</button>
+            </div>
+          </div>
+
+          <div class="row-between">
+            <label class="checkbox"><input type="checkbox" id="remember" /> Se souvenir de moi</label>
+            <a href="#" class="forgot" id="forgotLink">Mot de passe oublié ?</a>
+          </div>
+
+          <button type="submit" class="btn btn-block" id="loginBtn">SE CONNECTER →</button>
+        </form>
+
+        <div class="auth-foot">Plateforme sécurisée • Données chiffrées côté client</div>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
