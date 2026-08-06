@@ -87,7 +87,7 @@ Pour tester rapidement avec des données d'exemple, allez dans **Paramètres →
 ## 📁 Structure
 
 ```
-epargne-pro-plus/
+epargne-plus/
 ├── index.html          # Page de connexion
 ├── admin.html          # Espace administrateur
 ├── user.html           # Espace utilisateur
@@ -116,5 +116,3 @@ Le projet est un **front-end de démonstration**. Les bonnes pratiques prévues 
 - Protection contre les injections SQL (requêtes préparées)
 - Protection XSS (échappement HTML appliqué côté front via `escapeHtml`)
 - Sessions sécurisées (cookies `HttpOnly`/`Secure` côté serveur)
-
-> En production, ne jamais stocker les mots de passe en clair : remplacer `js/data.js` par une vraie API.
